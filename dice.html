@@ -1,0 +1,436 @@
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <title>Fahtzee</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/css/casinotheme.css" type="text/css" id="style" />
+    <!-- Favicons -->
+    <link rel="icon" href="/diceImages/5.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/diceImages/5.jpg" type="image/x-icon">
+    <!-- Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<!-- Here start popup templates -->
+	{{#if login}}
+		{{> loginContent}}
+	{{/if}}
+	{{#if register}}
+		{{> registerContent}}
+	{{/if}}
+	{{#if logout}}
+		{{> logoutContent}}
+	{{/if}}
+	{{#if create}}
+		{{> createContent}}
+	{{/if}}
+	<!-- Here end popup templates -->
+	<div id="homewrapper" style="filter: blur(5px); -webkit-filter: blur(5px); -moz-filter: blur(5px); -o-filter: blur(5px); -ms-filter: blur(5px);">
+		<div id="nav">
+			<a href="#">
+				<div id="cell1" class="cell {{actCell}}">
+					Home
+				</div>
+			</a>
+			<a href="#">
+				<div id="cell2" class="cell {{actCell}}">
+					Play
+				</div>
+			</a>
+			<a href="#">
+				<div id="cell3" class="cell {{actCell}}">
+					Instructions
+				</div>
+			</a>
+			<a href="#">
+				<div id="cell4" class="cell {{actCell}}">
+					Settings
+				</div>
+			</a>
+		</div>
+		<div id="main">
+			{{> main}}
+		</div>
+		<div id="footer">
+			Copyright (c) 2014 Elliot Nester and Wyatt Calandro
+			<br /> All Rights Reserved
+		</div>
+	</div>
+</body>
+
+<template name="main">
+	{{#if index}}
+		{{> indexContent}}
+	{{/if}}
+	{{#if play}}
+		{{> playContent}}
+	{{/if}}
+	{{#if instructions}}
+		{{> instructionsContent}}
+	{{/if}}
+	{{#if settings}}
+		{{> settingsContent}}
+	{{/if}}
+	{{#if game}}
+		{{> gameContent}}
+	{{/if}}
+</template>
+
+<template name="indexContent">
+	<div id="header">
+		<img src="/diceImages/FahtLogo.png" id="logo" />
+		<hr />
+	</div>
+	<div id="welcometext" class="maintext">
+		Welcome to Fahtzee Online, USERNAME Click <span class="em">Play</span> above to join a game.
+	</div>
+	<div id="maincontent">
+		<div id="leftcol" class="column">
+			<div class="headertext">Top 10 Players</div>
+		</div>
+		<div id="rightcol" class="column" style="margin-left: 30px">
+			<span class="headertext">Open Games</span>
+			{{> gameList}}
+		</div>
+	</div>
+</template>
+
+<template name="playContent">
+    <div id="header">
+		<img src="/diceImages/FahtLogo.png" id="logo" />
+		<hr />
+	</div>
+	<div id="playtext" class="maintext">
+
+		Enter a <span class="em">Game Code</span> below or <span class="em">Create</span> a new game.
+	</div>
+	<div id="maincontent">
+		<div class="row">
+			<div class="headertext" id="gcodetext" style="">Join Game</div>
+			<input type="text" name="gcode" class="textbox" id="codebox" placeholder="Game Code" />
+			<button class="inputbutton" id="submitcode" style="margin-top: 0px" onClick="joinGame()">Join</button>
+		</div>
+		<div class="row">
+			<div class="headertext" id="gcodetext" style="">New Game</div>
+			<button class="inputbutton" id="create">Create</button>
+		</div>
+	</div>
+</template>
+
+<template name="instructionsContent">
+    <div id="header">
+	<img src="/diceImages/FahtLogo.png" id="logo" />
+	<hr />
+	</div>
+	<div id="instructiontext" class="maintext">
+		Below are the simple instructions. Read them through and then click <span class="em">Play</span> above to join a game.
+	</div>
+	<div id="maincontent">
+		<div class="row" id="instructionscontainer">
+			<div class="headertext instructheader">
+				Basic Play:
+			</div>
+			<div class="instructpara">
+				<ol>
+					<li>
+						On your turn, click <span class="em">Roll</span> to roll the dice.
+					</li>
+					<li>
+						Once you have rolled your 6 dice, click on the ones you want to hold, and roll again.
+					</li>
+					<li>
+						The dice that you did not hold will roll. Play continues until you roll 3 times.
+					</li>
+					<li>
+						After 3 rolls or any other time when you are ready to score your points, click <span class="em">Score</span>.
+					</li>
+				</ol>
+			</div>
+			<div class="headertext instructheader">
+				Score Combos:
+			</div>
+			<div class="instructpara" style="width: 350px">
+				<ul>
+					<li>
+						3 of a Kind: <span class="light">100 X Number on Dice</span>
+					</li>
+					<li>
+						4 of a Kind: <span class="light">200 X Number on Dice </span>
+					</li>
+					<li>
+						5 of a Kind: <span class="light">300 X Number on Dice </span>
+					</li>
+					<li>
+						6 of a Kind: <span class="light">5000</span>
+					</li>
+					<li>
+						Pairs: <span class="light">2500</span>
+					</li>
+					<li>
+						Imperfect Straight: <span class="light">2000</span>
+					</li>
+					<li>
+						3 Part Straight: <span class="light">1000</span>
+					</li>
+					<li>
+						4 Part Straight: <span class="light">2500</span>
+					</li>
+					<li>
+						5 Part Straight: <span class="light">5000</span>
+					</li>
+					<li>
+						Perfect Straight: <span class="light">8000</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="settingsContent">
+    <div id="header">
+		<img src="/diceImages/FahtLogo.png" id="logo" />
+		<hr />
+	</div>
+	<div id="instructiontext" class="maintext">
+		Change your preferences below.
+	</div>
+	<div id="maincontent">
+		<div class="row" id="settingcontainer">
+			<div id="alignedsettings">
+				<form action='/changename' method='POST'>
+					<span class="headertext">Change Name:</span>
+					<input name='username' placeholder="Username" class="textbox">
+					<input name='password' placeholder="Username" class="textbox" style='display: none;'>
+					<button type='submit' class='inputbutton' style='width: 100px;'>Change</button>
+				</form>
+				<span class="headertext settingspart">Change Theme:</span>
+				<select id="themeselect">
+					<option value="casino">Casino</option>
+					<option value="dark">Dark</option>
+					<option value="light">Light</option>
+				</select>
+				<span class="headertext settingspart">Sounds On?</span>
+				<input type="checkbox" name="sounds" class="soundsbox" />
+				<button id="savesettings" type='submit' class="inputbutton" style="margin-bottom: 0px; display: inline;" onClick="changeTheme()">Save</button>
+				<input type="submit" class="inputbutton logoutButton" value="Logout" style="margin: auto; margin-top: 20px;">
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="gameContent">
+    <div id="header">
+        <img src="diceImages/FahtLogo.png" id="logo"/>
+        <hr />
+    </div>
+    <div id="instructiontext" class="maintext">
+    </div>
+    <div id="maincontent">
+        <div class="row" id="gamearea">
+            <div id="container">
+                <div id="menu">
+                    <h1 class ="headertext">Number of Players</h1>
+                    <div id="playeropt">
+                        <a href="#">
+                            <div id="left" class="inlineblock" onClick="left()">
+                                
+                            </div>
+                        </a>
+                        <div id="psetting" class="inlineblock">
+                            <img src="diceImages/TwoP.png" width="40" height="40" id="psetimg" />
+                        </div>
+                        <a href="#">
+                            <div id="right" class="inlineblock" onClick="right()">
+                                
+                            </div>
+                        </a>
+                    </div>
+                    <button onClick="play()" class="gamebutton" id="play">Play</button>
+                </div>
+                <div id="game">
+                    <div id="players">
+                        <div id="playerimgs">
+                            {{#if twop}}
+								{{> blueavi}}{{> redavi}}
+							{{/if}}
+							{{#if threep}}
+								{{> blueavi}}{{> redavi}}{{> greenavi}}
+							{{/if}}
+							{{#if fourp}}
+								{{> blueavi}}{{> redavi}}{{> greenavi}}{{> yellowavi}}
+							{{/if}}
+                        </div>
+                        <div id="playerscores">
+                            <div id="bluescore" class="score">
+                                {{> bluescore}}
+                            </div>
+                            <div id="redscore" class="score">
+                                {{> redscore}}
+                            </div>
+                            <div id="greenscore" class="score">
+                                {{> greenscore}}
+                            </div>
+                            <div id="yellowscore" class="score">
+                                {{> yellowscore}}
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dice">
+                        <img src="diceImages/Blank.png" id="first" class="die" />
+                        <img src="diceImages/Blank.png" id="second" class="die" />
+                        <img src="diceImages/Blank.png" id="third" class="die" />
+                        <img src="diceImages/Blank.png" id="fourth" class="die" />
+                        <img src="diceImages/Blank.png" id="fifth" class="die" />
+                        <img src="diceImages/Blank.png" id="sixth" class="die" />
+                    </div>
+                    <button class="gamebutton " id="roll">
+                        Roll
+                    </button>
+                    <button class="gamebutton" id="score">
+                        Score
+                    </button>
+                    <div id="scorecount">
+                        Score: 0
+                    </div>
+                    <div id="stats">
+                        <div id="1">
+                        </div>
+                        <div id="2">
+                        </div>
+                        <div id="3">
+                        </div>
+                        <div id="4">
+                        </div>
+                        <div id="5">
+                        </div>
+                        <div id="6">
+                        </div>
+                        <div id="total">
+                        </div>
+                    </div>
+                    <div id="console">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="loginContent">
+	<div id="secondcover" style="display: block;">
+		<div id="optionsbox">
+			<h2 id="createheader" class="headertext" style="margin-bottom: 0px;">Welcome to Fahtzee</h2>
+			<form id="meteorLogin">
+				<input name='username' id="loginName" placeholder="Username" class="textbox" style="text-align: center; margin: 5px;">
+				<br />
+				<input type="password" id="loginPass" name='password' class="textbox" style="text-align: center; margin: 5px;" placeholder="Password">
+				<br />
+				<input type='submit' id="loginButton" class="inputbutton" value="Sign In" style="margin: 5px;"><br />
+				<a href="#" id="switchRegister" class="reglink">Register</a>
+			</form>
+		</div>
+	</div>
+</template>
+
+<template name="registerContent">
+	<div id="secondcover" style="display: block;">
+		<div id="optionsbox">
+			<h2 id="createheader" class="headertext" style="margin-bottom: 0px;">Welcome to Fahtzee</h2>
+			<form id="meteorRegister">
+				<input name='username' id="registerName" placeholder="Username" class="textbox" style="text-align: center; margin: 5px;">
+				<br />
+				<input type="password" id="registerPass" name='password' class="textbox" style="text-align: center; margin: 5px;" placeholder="Password">
+				<br />
+				<input type='submit' id="registerButton" class="inputbutton" value="Register" style="margin: 5px;"><br />
+				<a href="#" id="switchLogin" class="reglink">Log In</a>
+			</form>
+		</div>
+	</div>
+</template>
+
+<template name="logoutContent">
+	<div id="secondcover" style="display: block;">
+		<div id="optionsbox">
+			<h2 id="createheader" class="headertext" style="margin-bottom: 0px;">Welcome to Fahtzee</h2>
+			<form id="meteorLogout">
+				<h3>Logged in as {{playerName}}</h3>
+				<input type="submit" id="okayButton" class="inputbutton" value="Okay" style="margin: 5px;">
+				<input type="submit" class="inputbutton logoutButton" value="Logout" style="margin: 5px;">
+			</form>
+		</div>
+	</div>
+</template>
+
+<template name="createContent">
+	<div id="secondcover" style="display: block;">
+        <div id="optionsbox">
+            <h2 id="createheader" class="headertext" style="margin-bottom: 0px;">Create Game</h2>
+            <form id="submitCreate">
+                <!--<input type="text" name="username" placeholder="Username" style="margin-top: 10px" class="textbox" id="hostname" />-->
+                <h3>Username: USERNAME HERE</h3>
+                <div id="playernum">
+                    Players:
+                    <select id="playernumselect">
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                    </select>
+                </div>
+                Private:
+                <input type="checkbox" id='privatecheck' name="private"/><br />
+                <input type="submit" id="confirmCreate" class="inputbutton" style="margin-bottom: 0px" value="Create">
+        	</form>
+            <a href="#" id="cancelCreate" class="reglink">Cancel</a>
+        </div>
+    </div>
+</template>
+
+<template name="gameList">
+	<div id="gamelist">
+		{{#each games}}
+			{{#if open}}
+				<div class="gamecell">
+					<span id="hostname">{{hostname}}'s Game</span><br />
+					<span id="hostname">Players: {{totalPlayers}}/{{playerLimit}}</span><br />
+					<form id="joinGame">
+						<input type="hidden" id="id" value="{{_id}}">
+						<input type="submit" class="inputbutton" value="Join">
+					</form>
+				</div>
+			{{/if}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="blueavi">
+	<img src="diceImages/blueavi.png" width="25" height="25" id="blueavi" class="avi {{blueTurn}}" />
+</template>
+
+<template name="redavi">
+	<img src="diceImages/redavi.png" width="25" height="25" id="redavi" class="avi {{redTurn}}" />
+</template>
+
+<template name="greenavi">
+	<img src="diceImages/greenavi.png" width="25" height="25" id="greenavi" class="avi {{greenTurn}}" />
+</template>
+
+<template name="yellowavi">
+	<img src="diceImages/yellowavi.png" width="25" height="25" id="yellowavi" class="avi {{yellowTurn}}" />
+</template>
+
+<template name="bluescore">
+	<span>{{p1score}}</span>
+</template>
+
+<template name="redscore">
+	<span>{{p2score}}</span>
+</template>
+
+<template name="greenscore">
+	<span class="{{hide}}">{{p3score}}</span>
+</template>
+
+<template name="yellowscore">
+	<span class="{{hide}}">{{p4score}}</span>
+</template>

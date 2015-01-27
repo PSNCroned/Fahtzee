@@ -1,0 +1,408 @@
+html, body {
+    margin: 0px;
+}
+
+body {
+    position: relative;
+}
+
+#errorbox {
+    font-family: Arial;
+    font-size: 20px;
+    color: red;
+}
+
+#maincover {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #666;
+    background-image: url('../diceImages/dicebg.jpg');
+    background-size: cover;
+    position: fixed;
+    z-index: 1;
+}
+
+#signinbox {
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    padding: 5px;
+    padding-bottom: 20px;
+    text-align: center;
+    width: 700px;
+    /*height: 350px;*/
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+    -webkit-box-shadow: 0px 0px 23px 10px rgba(50, 50, 50, 0.51);
+    -moz-box-shadow: 0px 0px 23px 10px rgba(50, 50, 50, 0.51);
+    box-shadow: 0px 0px 23px 10px rgba(50, 50, 50, 0.51);
+    opacity: .8;
+}
+
+h2 {
+    margin: 10px;
+    font-family: 'Signika', Arial;
+    font-size: 50px;
+    color: #222;
+}
+
+#signin input, button {
+    margin: auto;
+    margin-top: 15px;
+    display: block;
+}
+
+.textbox {
+    width: 200px;
+    height: 25px;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.inputbutton {
+    width: 125px;
+    height: 30px; 
+    border: none;
+    border-radius: 3px;
+    background-color: #222;
+    color: white;
+    font-size: 20px;
+}
+
+.inputbutton:hover {
+    background-color: #666;
+}
+
+#homewrapper {
+    position: absolute;
+    z-index: -1;
+    background-image: url("../diceImages/felt.png");
+    /* background-image: url("../diceImages/felt.jpg"); */
+    width: 100%;
+}
+
+#nav {
+    display: table;
+    height: 60px;
+    width: 1005px;
+    margin: auto;
+    /*border: 1px solid #222;*/
+    margin-top: 20px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0px 0px 50px 4px black;
+    -moz-box-shadow: 0px 0px 50px 4px black;
+    box-shadow: 0px 0px 50px 14px rgba(50, 50, 50, 0.51);
+}
+
+#main {
+    width: 1000px;
+    height: 1000px;
+    background-image: url("../diceImages/paper_fibers.png");
+    margin: auto;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0px 0px 50px 4px black;
+    -moz-box-shadow: 0px 0px 50px 4px black;
+    box-shadow: 0px 0px 50px 14px rgba(50, 50, 50, 0.51);
+}
+
+#footer {
+    line-height: 25px;
+    text-align: center;
+    width: 1000px;
+    height: 50px;
+    font-family: 'Signika', Arial;
+    color: white;
+    background-color: #666;
+    border: 1px solid #555;
+    margin: auto;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0px 0px 50px 4px black;
+    -moz-box-shadow: 0px 0px 50px 4px black;
+    box-shadow: 0px 0px 50px 14px rgba(50, 50, 50, 0.51);
+}
+
+.cell {
+    float: left;
+    width: 248.5px;
+    height: 60px;
+    background-color: #333;
+    text-align: center;
+    font-family: Arial;
+    font-size: 30px;
+    color: #e6e6e6;
+    line-height: 55px;
+}
+
+.cell:hover {
+    background-color: #222;
+}
+
+#cell1, #cell2, #cell3, #cell4{
+    border: 1px solid #111;
+    border-right: 2px solid #111;
+}
+
+#cell1 {
+    border-left: 1px solid #111;
+    background-color: #222;
+}
+
+#cell4 {
+    border-right: 1px solid #111;
+}
+
+#header {
+    width: 1000px;
+    text-align: center;
+}
+
+#logo {
+    margin-top: 5px;
+    width: 80%;
+    height: 80%;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    width: 800px;
+}
+
+#welcometext, #playtext, #instructiontext {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.maintext {
+    font-family: 'Signika';
+    font-size: 29px;
+    color: #333;
+}
+
+.em {
+    font-family: Arial;
+    font-weight: bold;
+    color: white;
+    background-color: #444;
+    border-radius: 2px;
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#maincontent {
+    width: 950px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.column {
+    padding: 3px;
+    text-align: center;
+    height: 700px;
+    display: inline-block;
+    width: 450px;
+    border: 1px solid #555;
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+    background-image: url("../diceImages/graybgtrans.png");
+    overflow: hidden;
+}
+
+.headertext {
+    font-family: 'Signika', Arial;
+    color: #E89E2D;
+    font-size: 29px;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px #777;
+}
+
+#gamelist {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.gamecell {
+    margin: auto;
+    width: 430px;
+    border: 1px solid #999;
+    height: 100px;
+    text-align: center;
+    background-color: white;
+    margin-top: 5px;
+}
+
+#hostname {
+    font-family: 'Signika', Arial;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.row {
+    margin-top: 40px;
+    height: 300px;
+    border: 1px solid #555;
+    padding: 3px;
+    text-align: center;
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: inset 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+    background-image: url("../diceImages/graybgtrans.png");
+}
+
+#codebox {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    border: 1px solid #777;
+    width: 300px;
+    height: 38px;
+    font-size: 30px;
+}
+
+#gcodetext {
+    text-align: center;
+    margin: auto;
+    width: 500px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-size: 50px
+}
+
+#secondcover {
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-size: cover;
+    position: fixed;
+    z-index: 1;
+}
+
+#optionsbox, #nameprompt {
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    padding: 5px;
+    padding-bottom: 20px;
+    text-align: center;
+    width: 700px;
+    /*height: 350px;*/
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+    -webkit-box-shadow: 0px 0px 23px 10px rgba(50, 50, 50, 0.51);
+    -moz-box-shadow: 0px 0px 23px 10px rgba(50, 50, 50, 0.51);
+    box-shadow: 0px 0px 23px 10px rgba(50, 50, 50, 0.51);
+    font-family: 'Signika', Arial;
+    font-size: 20px;
+}
+
+#createheader {
+    margin-bottom: 0px;
+    font-size: 50px;
+}
+
+#create {
+    position: relative;
+    top: 5%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 250px;
+    height: 60px;
+    font-size: 40px;
+}
+
+#playernum {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#hostname {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 20px;
+    width: 130px;
+}
+
+.reglink {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+#thirdcover {
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-size: cover;
+    position: fixed;
+    z-index: 1;
+}
+
+#instructiontext {
+    margin: auto;
+    width: 700px;
+}
+
+#instructionscontainer, #settingcontainer {
+    height: 670px;
+}
+
+.instructheader {
+    font-size: 50px;
+}
+
+.instructpara {
+    text-align: left;
+    width: 745px;
+    margin: auto;
+    font-family: 'Signika', Arial;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.light {
+    color: #333;
+}
+
+#gamearea {
+    height: 250px;
+}
+
+#alignedsettings {
+    margin: auto;
+    text-align: left;
+    width: 420px;
+}
+
+.settingspart {
+    margin-top: 50px;
+    display: inline-block;
+}
+
+#themeselect {
+    width: 100px;
+    font-family: Arial;
+    font-size: 20px;
+    text-align: center;
+}
+
+.actCell {
+    background-color: #222;
+}

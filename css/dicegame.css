@@ -1,0 +1,115 @@
+.inlineblock {
+    display: inline-block
+}
+
+#title {
+    color: white;
+}
+
+.gamebutton {
+    background-color: #DBDBDB;
+    border-color: #2b2b5a;
+    border-radius: 5px;
+    color: black;
+    margin: 10px;
+	text-align: center;
+	margin: auto;
+	display: inline;
+}
+
+#players {
+    width: 690px;
+    text-align: center;
+}
+
+.avi {
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.score {
+    display: inline-block;
+    width: 25px;
+    margin: 0px 8px 5px 8px;
+    color: white;
+    text-align: center;
+}
+
+#dice {
+    width: 680px;
+    text-align: center;
+}
+
+#left {
+    width: 0px;
+    height: 0px;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid black;
+    border-top: 20px solid transparent;
+}
+
+#right {
+    width: 0px;
+    height: 0px;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid black;
+    border-top: 20px solid transparent;
+}
+
+#psetting {
+    width: 80px;
+    height: 40px;
+    
+}
+
+#container {
+    padding: 5px; 
+    position: relative;
+    text-align: center;
+    width: 680px;
+    border-radius: 5px;
+    margin: auto;
+}
+
+#game {
+    display: block;
+}
+
+#scorecount {
+    color: white;
+    margin-bottom: 5px;
+    display: none;
+}
+
+#stats {
+    color: white;
+    display: none;
+}
+
+#console {
+    margin-top: 5px;
+    color: black;
+    background-color: white;
+    display: block;
+    border-radius: 3px;
+}
+ 
+.die {
+    border: 5px solid #1A661A;
+}
+
+#menu {
+    display: none;
+}
+
+.turn {
+	border: 2px solid orange;
+}
+
+.notTurn {
+	border: 2px solid #1A661A;
+}
+
+.hide {
+	display: none;
+}
